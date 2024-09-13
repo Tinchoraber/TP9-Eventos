@@ -3,12 +3,12 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
-    padding: 0.4rem;
+    padding: 0.2rem;
     position: relative;
     position: fixed;  
     top: 0; 
     width: 100%;
-    background-color: white;  
+    background-color: #4d8cca;  
   }
   
   .primeros2 {
@@ -29,7 +29,8 @@
   }
   
   .logoutButton {
-    background-color: red;
+    background-color: rgb(23, 2, 141);
+    cursor: pointer;
     color: white;
     border: none;
     padding: 10px;
@@ -50,5 +51,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    color: black;
   }
   

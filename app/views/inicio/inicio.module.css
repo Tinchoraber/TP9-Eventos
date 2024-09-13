@@ -1,0 +1,77 @@
+.padre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .main {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .d {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .clasHR {
+    width: 80%;
+    margin: 20px auto;
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+  }
+  
+  .bon {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .botonIngresar,
+  .botonRegistrarse {
+    display: inline-block;
+    padding: 12px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .botonIngresar {
+    background-color: #2fa8f8;
+  }
+  
+  .botonIngresar:hover {
+    background-color: #08598f;
+  }
+  
+  .botonRegistrarse {
+    background-color: #2fa8f8;
+  }
+  
+  .botonRegistrarse:hover {
+    background-color: #2980b9;
+  }

@@ -3,8 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./header.module.css";
-
+import AuthContext from '../../context/AuthContext';
+import { useContext } from "react";
 const Header = () => {
+  const { usuario, logout } = useContext(AuthContext);
   return (
     <div className={styles.header}>
       <div className={styles.primeros2}>
@@ -23,9 +25,9 @@ const Header = () => {
         <div className={styles.ultimos2}>
         <div className={styles.usuario}>
         <Image src="/usuario.png" alt="Logo" width={30} height={30} />
-        <p className="usuario">Juan</p>
+        <p className="usuario">{usuario}</p>
         </div>
-        <button className={styles.logoutButton}>Cerrar Sesión</button>
+        <button onClick={logout} className={styles.logoutButton}>Cerrar Sesión</button>
         </div>
     </div>
   );

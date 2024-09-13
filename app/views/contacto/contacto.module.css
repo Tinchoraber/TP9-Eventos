@@ -1,0 +1,76 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .titulo {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 40px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .label {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input:focus,
+  .textarea:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .textarea {
+    resize: none;
+  }
+  
+  .botonEnviar {
+    background-color: #3498db;
+    color: black;
+    padding: 15px;
+    font-size: 1rem ;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    width: 35%; 
+  }
+  
+  .botonEnviar:hover {
+    background-color: #005bb5;
+  }
+  .container_boton{
+    display: flex;
+    justify-content: center;
+  }
+  

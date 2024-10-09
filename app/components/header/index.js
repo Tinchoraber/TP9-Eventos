@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./header.module.css";
-import AuthContext from '../../context/AuthContext';
+import AuthContext from '../../context/TokenContext';
 import { useContext } from "react";
 const Header = () => {
   const { usuario, logout } = useContext(AuthContext);

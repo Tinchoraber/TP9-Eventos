@@ -5,7 +5,7 @@ import styles from './login.module.css';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
-  const {saveToken} = useContext(TokenContext)
+  const { login } = useContext(TokenContext)
   const [email, setEmail] = useState('');
   const [emailValido, setEmailValido] = useState('');
   const [contraseña, setContraseña] = useState('');
@@ -42,7 +42,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/api/user/login", {
+      const response = await fetch("http://localhost:3000/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,18 +50,18 @@ export default function Login() {
         body: JSON.stringify({ email, contraseña }),
       });
       const data = await response.json();
-      saveToken(data.token)
+      login(data)
       if (response.ok) {
-        setUser(data);
-
         router.push("../../views/home");
       } else {
         console.log("Email o contraseña incorrectos.");
       }
     } catch (error) {
       console.log("Error al conectar con la api.");
+      console.log(error);
     }
-};
+  };
+  
   return (
     <div className={styles.loginContainer}>
       <h2 className={styles.iniciarsesion}>Iniciar Sesión</h2>

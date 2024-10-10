@@ -2,43 +2,125 @@
 import { useState } from 'react';
 import styles from './registro.module.css';
 import { useRouter } from 'next/navigation';
-
+import { useContext } from 'react';
+import { TokenContext } from '../../context/TokenContext.js';
 export default function Registro() {
   const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [confirmarContraseña, setContraseñaConfirmada] = useState('');
+  const [emailValido, setEmailValido] = useState(null);
+  const [nombreValido, setNombreValido] = useState(null);
+  const [apellidoValido, setApellidoValido] = useState(null);
+  const [contraseñaValida, setContraseñaValida] = useState(null);
+  const [confirmarContraseñaValida, setConfirmarContraseñaValida] = useState(null);
   const router = useRouter();
+  const { setUser } = useContext(TokenContext); 
 
-  const validarRegistro = (e) => {
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (value === "") {
+      setEmailValido(null);
+    } else {
+      const emailRegla = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      setEmailValido(emailRegla.test(value));
+    }
+  };
+
+  const handleNombreChange = (e) => {
+    const value = e.target.value;
+    setNombre(value);
+    if (value === "") {
+      setNombreValido(null);
+    } else {
+      setNombreValido(value.length > 0);
+    }
+  };
+
+  const handleApellidoChange = (e) => {
+    const value = e.target.value;
+    setApellido(value);
+    if (value === "") {
+      setApellidoValido(null);
+    } else {
+      setApellidoValido(value.length > 0);
+    }
+  };
+
+  const handleContraseñaChange = (e) => {
+    const value = e.target.value;
+    setContraseña(value);
+    if (value === "") {
+      setContraseñaValida(null);
+    } else {
+      setContraseñaValida(value.length >= 6);
+    }
+  };
+
+  const handleConfirmarContraseñaChange = (e) => {
+    const value = e.target.value;
+    setContraseñaConfirmada(value);
+    if (value === "") {
+      setConfirmarContraseñaValida(null);
+    } else {
+      setConfirmarContraseñaValida(value.length >= 6);
+    }
+  };
+
+  const isFormValid = () => {
+    return (
+      nombreValido && apellidoValido && emailValido && contraseñaValida && confirmarContraseñaValida
+    );
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validación de contraseña
+    if (!isFormValid()) return;
+ 
     if (contraseña !== confirmarContraseña) {
       alert('Error, las contraseñas son distintas');
       return;
     }
     
-    // Guardar datos en localStorage
-    localStorage.setItem('nombreGuardado', nombre);
-    localStorage.setItem('emailGuardado', email);
-    localStorage.setItem('contraseñaGuardada', contraseña);
 
-    // Redirigir a la página de login
+    try {
+      const response = await fetch("http://localhost:3001/api/user/registro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, contraseña, nombre, apellido }),
+      });
+      if (response.ok) {
+        const data = await response.json()
+        localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
+        router.push("../../views/iniciar_Sesion");
+      }
+      else {
+        console.log("Error al registrar el usuario.");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
     router.push('../../views/login');
-  }
+  
 
   return (
     <div className={styles.registerContainer}>
       <h2 className={styles.registro}>Registro de Usuario</h2>
-      <form onSubmit={validarRegistro} className={styles.form}>
-        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" className={styles.inputField} />
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className={styles.inputField} />
-        <input type="password" value={contraseña} onChange={(e) => setContraseña(e.target.value)} placeholder="Contraseña" className={styles.inputField} />
-        <input type="password" value={confirmarContraseña} onChange={(e) => setContraseñaConfirmada(e.target.value)} placeholder="Confirmar Contraseña" className={styles.inputField} />
-        <button type="submit" className={styles.registerButton}>Registrarse</button>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input type="text" value={nombre} onChange={handleNombreChange} placeholder="Nombre" className={styles.inputField} />
+        <input type="text" value={apellido} onChange={handleApellidoChange} placeholder="Apellido" className={styles.inputField} />
+        <input type="email" value={email} onChange={handleEmailChange} placeholder="Email" className={styles.inputField} />
+        <input type="password" value={contraseña} onChange={handleContraseñaChange} placeholder="Contraseña" className={styles.inputField} />
+        <input type="password" value={confirmarContraseña} onChange={handleConfirmarContraseñaChange} placeholder="Confirmar Contraseña" className={styles.inputField} />
+        <button type="submit" disabled={!isFormValid()} className={styles.registerButton}>Registrarse</button>
       </form>
       <p className={styles.iflogin}>¿Ya tienes cuenta? <a href="../views/login">Inicia sesión aquí</a></p>
     </div>
   );
-}
+  }

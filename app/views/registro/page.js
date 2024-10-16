@@ -86,18 +86,19 @@ export default function Registro() {
     
 
     try {
-      const response = await fetch("http://localhost:3001/api/user/registro", {
+      const response = await fetch("http://localhost:3000/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, contraseña, nombre, apellido }),
-      });
+      } );
+      console.log(response)
       if (response.ok) {
         const data = await response.json()
         localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
-        router.push("../../views/iniciar_Sesion");
+        router.push('../../views/login');
       }
       else {
         console.log("Error al registrar el usuario.");
@@ -106,7 +107,6 @@ export default function Registro() {
       console.error("Error fetching data:", error);
     }
   };
-    router.push('../../views/login');
   
 
   return (

@@ -28,7 +28,7 @@ export const TokenProvider = ({children}) => {
     
 
     return (
-        <TokenContext.Provider value={{user, login, logout, isLoggedIn: !!user?.token}}>
+        <TokenContext.Provider value={{user, setUser, login, logout, isLoggedIn: !!user?.token}}>
             {children}
             
         </TokenContext.Provider>

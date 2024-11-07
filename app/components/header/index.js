@@ -25,7 +25,7 @@ const Header = () => {
         <div className={styles.ultimos2}>
         <div className={styles.usuario}>
         <Image src="/usuario.png" alt="Logo" width={30} height={30} />
-        <p className="usuario">{user.result.first_name}</p>
+        <p className="usuario">{user?.result?.first_name}</p>
         </div>
         <button onClick={logout} className={styles.logoutButton}>Cerrar Sesión</button>
         </div>

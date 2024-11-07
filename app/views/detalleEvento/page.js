@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import Header from '@/app/components/header';
 import Footer from '@/app/components/footer';
 import styles from './detalleEvento.module.css';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+
 export default function DetalleEvento() {
   const router = useRouter();
-  const { id } = useParams(); // Obtener el ID del evento desde la URL
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
   const [evento, setEvento] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,12 +16,12 @@ export default function DetalleEvento() {
   useEffect(() => {
     const fetchEvento = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/event/${id}`); // Llamada a la API usando el ID
+        const response = await fetch(`http://localhost:3000/api/event/${id}`);
         if (!response.ok) {
           throw new Error('Error al obtener el evento');
         }
         const data = await response.json();
-        setEvento(data); // Guardar los detalles del evento en el estado
+        setEvento(data); 
       } catch (error) {
         setError(error.message);
       } finally {
@@ -48,11 +50,21 @@ export default function DetalleEvento() {
     <>
       <Header />
       <div className={styles.container}>
-        <h1 className={styles.titulo}>{evento.titulo}</h1>
-        <p className={styles.eventoFecha}>Fecha: {evento.fecha}</p>
-        <p className={styles.eventoUbicacion}>Ubicación: {evento.ubicacion}</p>
-        <p className={styles.descripcion}>{evento.descripcion}</p>
-        <p className={styles.detalles}>{evento.detalles}</p>  
+        <h1 className={styles.titulo}>{evento.name}</h1>
+        <p className={styles.eventoFecha}>Fecha: {new Date(evento.start_date).toLocaleDateString()}</p>
+        <p className={styles.eventoDuracion}>Duración: {evento.duration_in_minutes} minutos</p>
+        <p className={styles.eventoUbicacion}>Ubicación: {evento.event_location.name}, {evento.event_location.full_address}</p>
+        <p className={styles.descripcion}>Descripción: {evento.description}</p>
+        <p className={styles.detalles}>Precio: ${evento.price}</p>
+        <p className={styles.asistencia}>Máxima asistencia: {evento.max_assistance}</p>
+        <div className={styles.tags}>
+          <p>Etiquetas:</p>
+          <ul>
+            {evento.tags.map((tag, index) => (
+              <li key={index}>{tag}</li>
+            ))}
+          </ul>
+        </div>
         <button className={styles.volver} onClick={() => router.back()}>Volver</button>
       </div>
       <Footer />

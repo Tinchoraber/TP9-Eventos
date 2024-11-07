@@ -4,8 +4,7 @@ import Header from '@/app/components/header';
 import styles from './home.module.css';
 import Link from 'next/link';
 import Footer from '@/app/components/footer';
-import Image from 'next/image';
-import { Darker_Grotesque } from 'next/font/google';
+
 
 export default function Eventos() {
   const [eventos, setEventos] = useState([]);
@@ -52,7 +51,7 @@ export default function Eventos() {
               <div key={evento.id} className={styles.eventoCard}>
                 <h2 className={styles.eventoTitulo}>{evento.name}</h2>
                 <p className={styles.eventoDescripcion}>{evento.description}</p>
-                <Link href={`/views/detalleEvento/${evento.id}`} className={styles.botonMasInfo}>
+                <Link href={`/views/detalleEvento?id=${evento.id}`} className={styles.botonMasInfo}>
                   Más Información
                 </Link>
               </div>

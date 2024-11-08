@@ -1,11 +1,23 @@
 .footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #4d8cca;
-    border-top: 1px solid #ccc;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    color: black;
-  }
-  
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f4f8; /* Color claro que combina con el header */
+  border-top: 2px solid #a8dadc;
+  color: #333;
+  font-family: Arial, sans-serif; /* Tipografía consistente con el header */
+  font-size: 0.9rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  transition: background-color 0.3s ease;
+}
+
+.footer p {
+  margin: 0;
+  letter-spacing: 0.5px;
+  color: #1d3557; /* Color de texto para mejor visibilidad sobre fondo claro */
+}
+
+.footer:hover {
+  background-color: #dbe2e8;
+}

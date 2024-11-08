@@ -3,23 +3,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 40px;
+  background-color: #f0f4f8; /* Fondo claro en sintonía con el header y footer */
+  min-height: 100vh;
 }
 
 .registro {
-  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
   margin-bottom: 20px;
-  color: #333;
+  color: #1d3557; /* Color de título */
+  font-family: Arial, sans-serif;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para el formulario */
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra */
   width: 100%;
   max-width: 400px;
 }
@@ -27,40 +31,48 @@
 .inputField {
   width: 100%;
   padding: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+  border: 1px solid #a8dadc;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.inputField:focus {
+  border-color: #457b9d;
+  outline: none;
 }
 
 .registerButton {
-  background-color: #0070f3;
-  color: white;
+  background-color: #457b9d;
+  color: #f1faee;
   padding: 12px;
   width: 100%;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-
 .registerButton:hover {
-  background-color: #005bb5; /* Color al hacer hover */
+  background-color: #1d3557;
 }
 
 .iflogin {
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #666;
+  font-family: Arial, sans-serif;
 }
 
 .iflogin a {
-  color: #0070f3;
+  color: #457b9d;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .iflogin a:hover {
+  color: #1d3557;
   text-decoration: underline;
 }

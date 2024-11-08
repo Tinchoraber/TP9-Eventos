@@ -14,13 +14,11 @@ export default function Eventos() {
   useEffect(() => {
     const fetchEventos = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/event'); 
-        console.log(response)
+        const response = await fetch('http://localhost:3000/api/event');
         if (!response.ok) {
           throw new Error('Error al obtener los eventos');
         }
         const data = await response.json();
-        console.log('data',data)
         setEventos(data);
       } catch (error) {
         setError(error.message);
@@ -49,6 +47,7 @@ export default function Eventos() {
           {eventos.length > 0 ? (
             eventos.map((evento) => (
               <div key={evento.id} className={styles.eventoCard}>
+                <img src={evento.imagen} alt={evento.name} className={styles.eventoImagen} />
                 <h2 className={styles.eventoTitulo}>{evento.name}</h2>
                 <p className={styles.eventoDescripcion}>{evento.description}</p>
                 <Link href={`/views/detalleEvento?id=${evento.id}`} className={styles.botonMasInfo}>

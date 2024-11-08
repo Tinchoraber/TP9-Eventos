@@ -1,56 +1,75 @@
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    padding: 0.2rem;
-    position: relative;
-    position: fixed;  
-    top: 0; 
-    width: 100%;
-    background-color: #4d8cca;  
-  }
-  
-  .primeros2 {
-    display: flex;
-    gap: 50px;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: #f0f4f8; /* Color claro para el fondo */
+  border-bottom: 2px solid #a8dadc;
+  color: #333;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  font-family: Arial, sans-serif; /* Tipografía igual que el footer */
+}
+.header:hover{
+  background-color: #dbe2e8;
+}
 
-  .ultimos2 {
-    display: flex;
-    justify-content: flex-end;
-    gap: 50px;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .logoutButton {
-    background-color: rgb(23, 2, 141);
-    cursor: pointer;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-  }
+.primeros2 {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
 
-  .linkNav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    color: black;
-    text-decoration: none;  /* Elimina el subrayado */
-  }
-  .usuario{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: black;
-  }
-  
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.linkNav {
+  color: #1d3557;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.linkNav:hover {
+  color: #457b9d;
+}
+
+.ultimos2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.username {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.logoutButton {
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #d62839;
+}

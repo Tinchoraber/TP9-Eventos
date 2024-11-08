@@ -1,54 +1,99 @@
+/* Ajuste del diseño */
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .titulo {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .imagen {
-    border-radius: 15px;
-    margin-bottom: 20px;
-  }
-   
-  .descripcion, 
-  .detalles {
-    font-size: 1.2rem;
-    color: #34495e;
-    margin-bottom: 15px;
-  }
-  
-  .eventoFecha,
-  .eventoUbicacion {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #275786;
-    margin: 0 15px 5px 15px; /* Margen consistente entre los elementos */
-  }
-  
-  .descripcion {
-    font-style: italic;
-    color: #2c3e50;
-  }
-  
-  .volver {
-    background-color: #3498db;
-    color: black;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .volver:hover {
-    background-color: #005bb5;
-  }
-  
+  max-width: 1000px;
+  margin: 120px auto; /* Margen superior para evitar superposición con el header */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: auto; /* Permitir desplazamiento */
+}
+
+.titulo {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.imagenContainer {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.imagen {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.eventoInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.asistencia,
+.descripcion,
+.detalles,
+.eventoFecha,
+.eventoDuracion,
+.eventoUbicacion,
+.tags {
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.tags p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.tags ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tags li {
+  background-color: #2c3e50; /* Fondo oscuro */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px; /* Forma más estilizada */
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.tags li:hover {
+  background-color: #1a252f; /* Cambio de color al pasar el mouse */
+}
+
+.volver {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+.volver:hover {
+  background-color: #005bb5;
+}

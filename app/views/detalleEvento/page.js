@@ -51,12 +51,17 @@ export default function DetalleEvento() {
       <Header />
       <div className={styles.container}>
         <h1 className={styles.titulo}>{evento.name}</h1>
-        <p className={styles.eventoFecha}>Fecha: {new Date(evento.start_date).toLocaleDateString()}</p>
-        <p className={styles.eventoDuracion}>Duración: {evento.duration_in_minutes} minutos</p>
-        <p className={styles.eventoUbicacion}>Ubicación: {evento.event_location.name}, {evento.event_location.full_address}</p>
-        <p className={styles.descripcion}>Descripción: {evento.description}</p>
-        <p className={styles.detalles}>Precio: ${evento.price}</p>
-        <p className={styles.asistencia}>Máxima asistencia: {evento.max_assistance}</p>
+        <div className={styles.imagenContainer}>
+          <img src={evento.imagen} alt={evento.name} className={styles.imagen} />
+        </div>
+        <div className={styles.eventoInfo}>
+          <p className={styles.eventoFecha}>Fecha: {new Date(evento.start_date).toLocaleDateString()}</p>
+          <p className={styles.eventoDuracion}>Duración: {evento.duration_in_minutes} minutos</p>
+          <p className={styles.eventoUbicacion}>Ubicación: {evento.event_location.name}, {evento.event_location.full_address}</p>
+          <p className={styles.descripcion}>Descripción: {evento.description}</p>
+          <p className={styles.detalles}>Precio: ${evento.price}</p>
+          <p className={styles.asistencia}>Máxima asistencia: {evento.max_assistance}</p>
+        </div>
         <div className={styles.tags}>
           <p>Etiquetas:</p>
           <ul>

@@ -2,15 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.5rem;
-  background-color: #f0f4f8; /* Color claro para el fondo */
+  padding: .3rem;
+  background-color: #f0f4f8; 
   border-bottom: 2px solid #a8dadc;
   color: #333;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  font-family: Arial, sans-serif; /* Tipografía igual que el footer */
+  font-family: Arial, sans-serif; 
 }
 .header:hover{
   background-color: #dbe2e8;

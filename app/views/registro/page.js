@@ -113,11 +113,11 @@ export default function Registro() {
     <div className={styles.registerContainer}>
       <h2 className={styles.registro}>Registro de Usuario</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <input type="text" value={nombre} onChange={handleNombreChange} placeholder="Nombre" className={styles.inputField} />
-        <input type="text" value={apellido} onChange={handleApellidoChange} placeholder="Apellido" className={styles.inputField} />
-        <input type="email" value={email} onChange={handleEmailChange} placeholder="Email" className={styles.inputField} />
-        <input type="password" value={contraseña} onChange={handleContraseñaChange} placeholder="Contraseña" className={styles.inputField} />
-        <input type="password" value={confirmarContraseña} onChange={handleConfirmarContraseñaChange} placeholder="Confirmar Contraseña" className={styles.inputField} />
+        <input type="text" value={nombre} onChange={handleNombreChange} placeholder="Nombre" className={styles.inputField} required/>
+        <input type="text" value={apellido} onChange={handleApellidoChange} placeholder="Apellido" className={styles.inputField} required/>
+        <input type="email" value={email} onChange={handleEmailChange} placeholder="Email" className={styles.inputField} required/>
+        <input type="password" value={contraseña} onChange={handleContraseñaChange} placeholder="Contraseña" className={styles.inputField} required/>
+        <input type="password" value={confirmarContraseña} onChange={handleConfirmarContraseñaChange} placeholder="Confirmar Contraseña" className={styles.inputField} required/>
         <button type="submit" disabled={!isFormValid()} className={styles.registerButton}>Registrarse</button>
       </form>
       <p className={styles.iflogin}>¿Ya tienes cuenta? <a href="../views/login">Inicia sesión aquí</a></p>

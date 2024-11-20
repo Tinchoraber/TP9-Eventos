@@ -21,6 +21,7 @@
   gap: 30px;
   width: 100%;
   max-width: 1200px;
+  padding-bottom: 60px;
 }
 
 .eventoCard {
@@ -28,6 +29,10 @@
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Esto sigue asegurando que los elementos se distribuyan entre el top y bottom */
+  height: 100%; /* Asegura que la tarjeta ocupe toda la altura disponible */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
@@ -52,7 +57,8 @@
 .eventoDescripcion {
   font-size: 1.2rem;
   color: #34495e;
-  margin: 10px 15px 20px 15px;
+  margin: 10px 15px;
+  flex-grow: 1; /* Hace que la descripción ocupe el espacio disponible */
 }
 
 .botonMasInfo {
@@ -65,9 +71,9 @@
   font-size: 1rem;
   transition: background-color 0.3s ease;
   font-family: 'Poppins', sans-serif;
-  margin: 0 15px 15px 15px;
+  margin: 15px; /* Margen uniforme en todos los lados */
+  align-self: flex-start; /* Cambié esto para alinear el botón al lado izquierdo */
 }
-
 .botonMasInfo:hover {
   background-color: #005bb5;
 }
